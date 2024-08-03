@@ -127,6 +127,26 @@ app.delete("/todos/:todoId/", async (request, response) => {
   response.send("Todo Deleted");
 });
 
+app.get("/allusers/:user_id", async (request, response) => {
+  const {user_id} = request.params;
+  getTodosQuery = `
+      SELECT
+        *
+      FROM
+        users`;
+  data = await database.all(getTodosQuery);
+  response.send(data);
+});
+
+app.get("/alltodos/", async (request, response) => {
+  getTodosQuery = `
+      SELECT
+        *
+      FROM
+        todo`;
+  data = await database.all(getTodosQuery);
+  response.send(data);
+});
 
 /*const hasPriorityAndStatusProperties = (requestQuery) => {
     return (
