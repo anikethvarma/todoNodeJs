@@ -8,6 +8,7 @@ const path = require("path");
 const databasePath = path.join(__dirname, "todoApplication.db");
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 app.use(express.json());
 
