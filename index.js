@@ -127,14 +127,13 @@ app.delete("/todos/:todoId/", async (request, response) => {
   response.send("Todo Deleted");
 });
 
-app.get("/allusers/:user_id", async (request, response) => {
-  const {user_id} = request.params;
-  getTodosQuery = `
+app.get("/allusers", async (request, response) => {
+  getUsers = `
       SELECT
         *
       FROM
         users`;
-  data = await database.all(getTodosQuery);
+  data = await database.all(getUsers);
   response.send(data);
 });
 
