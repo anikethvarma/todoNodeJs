@@ -134,7 +134,7 @@ app.get("/allusers", async (request, response) => {
       FROM
         users`;
   data = await database.all(getUsers);
-  response.send(data);
+  response.send(JSON.stringify(data));
 });
 
 app.get("/alltodos/", async (request, response) => {
